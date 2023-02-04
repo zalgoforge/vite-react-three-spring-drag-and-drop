@@ -19,8 +19,7 @@ import { useControls } from "leva";
 import { DoubleSide, Plane, Vector3 } from "three";
 
 function Box(props: ThreeElements["mesh"]) {
-  const name = (type: string) =>
-    `src/assets/texture/metal/Metal047B_1K_${type}.jpg`;
+  const name = (type: string) => `texture/metal/Metal047B_1K_${type}.jpg`;
 
   const [colorMap, displacementMap, normalMap, roughnessMap] = useLoader(
     TextureLoader,
@@ -77,8 +76,7 @@ function Suzi({ setIsDragging, floorPlane, ...props }: any) {
     });
     return timeStamp;
   });
-  const name = (type: string) =>
-    `src/assets/texture/wood/Wood060_1K_${type}.jpg`;
+  const name = (type: string) => `texture/wood/Wood060_1K_${type}.jpg`;
 
   const [colorMap, displacementMap, normalMap, roughnessMap, aoMap] = useLoader(
     TextureLoader,
