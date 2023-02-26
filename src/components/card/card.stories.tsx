@@ -18,6 +18,9 @@ type Story = StoryObj<typeof meta>;
 
 export const CardStory: Story = {
   args: {
+    cardName: "Card Name",
+    cardDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed tincidunt lorem. In hac habitasse platea dictumst. Nullam vitae tellus dapibus, lacinia tellus ut, ornare orci. Aliquam sagittis mi nec justo auctor, non tincidunt ex vehicula.",
+    cardStrength: 5,
     cardSize: 7,
     cardThickness: 0.01,
   },
