@@ -5,6 +5,7 @@ import cardMiddleSrc from "./assets/card-middle.png";
 import cardBackSrc from "./assets/card-back.png";
 import skeletonFaceSrc from "./assets/faces/skeleton.png";
 import { Center, Text } from "@react-three/drei";
+import robotoFontSrc from "./assets/Roboto-Medium.ttf";
 
 export type Props = {
   cardName: string;
@@ -124,6 +125,7 @@ export const Card = forwardRef<Mesh, Props>(
             position={[0, -2.5, 0.01]}
             maxWidth={4}
             textAlign="center"
+            font={robotoFontSrc}
           >
             {cardDescription}
           </Text>
