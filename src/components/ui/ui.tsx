@@ -5,6 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import { createFindTimestampIndexes } from "./timestamp";
 import { Text } from "@react-three/drei";
 import { useControls } from "leva";
+import { Card } from "../card/card";
 
 const euler = new THREE.Euler(0, 0, 0);
 
@@ -162,15 +163,12 @@ export function Ui() {
         info:
       </Text>
       {deck.map((card, i) => (
-        <mesh
+        <Card
           key={card.id}
           ref={(el) => (meshRef.current[i] = el)}
           position={snapshots[0].position}
           rotation={euler.setFromQuaternion(snapshots[0].rotation)}
-        >
-          <boxGeometry args={[0.7, 1, 0.01]} />
-          <meshStandardMaterial color="grey" />
-        </mesh>
+        />
       ))}
 
       <mesh
