@@ -11,7 +11,7 @@ export type Props = {
   cardDescription: string;
   cardStrength: number;
   cardSize: number;
-  cardThickness: number;
+  cardThickness?: number;
   position?: Vector3;
   rotation?: Euler;
 };

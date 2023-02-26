@@ -165,6 +165,10 @@ export function Ui() {
       {deck.map((card, i) => (
         <Card
           key={card.id}
+          cardName={card.id}
+          cardDescription="description"
+          cardStrength={i}
+          cardSize={0.7}
           ref={(el) => (meshRef.current[i] = el)}
           position={snapshots[0].position}
           rotation={euler.setFromQuaternion(snapshots[0].rotation)}
