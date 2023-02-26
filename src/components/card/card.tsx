@@ -32,6 +32,11 @@ export const Card = forwardRef<Mesh, Props>(
     const colorMapMiddle = useLoader(TextureLoader, cardMiddleSrc);
     const colorMapBack = useLoader(TextureLoader, cardBackSrc);
     const colorMapSkeleton = useLoader(TextureLoader, skeletonFaceSrc);
+    colorMapSkeleton.repeat.set(2, 2);
+
+    const ratio = colorMapSkeleton.image.height / colorMapMiddle.image.height;
+
+    console.log(ratio);
 
     const pitchMaterialParams = {
       uniforms: UniformsUtils.merge([
@@ -61,17 +66,17 @@ export const Card = forwardRef<Mesh, Props>(
         varying vec2 vUv;
         
         void main() {
-            vec4 t1 = texture2D( texture1, vUv );
-            vec4 t2 = texture2D( texture2, vUv );
+            vec4 t1 = texture( texture1, (vUv  / vec2(1, ${ratio})) - vec2(0.0, 0.43));
+            vec4 t2 = texture( texture2, vUv );
             gl_FragColor = vec4(mix(t1.rgb, t2.rgb, t2.a), 1.0);
         }
                
         `,
     };
     return (
-      <>
+      <group scale={cardSize / 7}>
         <mesh ref={ref} {...restProps}>
-          <boxGeometry args={[0.7 * cardSize, cardSize, cardThickness]} />
+          <boxGeometry args={[4.899, 7, cardThickness]} />
           <shaderMaterial
             args={[pitchMaterialParams]}
             uniforms={{
@@ -130,7 +135,7 @@ export const Card = forwardRef<Mesh, Props>(
             {cardDescription}
           </Text>
         </mesh>
-      </>
+      </group>
     );
   }
 );
